@@ -17,15 +17,18 @@ void enqueue(CQ *q,int ele){
 		printf("Queue is full");
 	}else if(isempty(*q)){
 		q->front=0;
+		q->rear=(++q->rear)%max;
+		q->items[q->rear]=ele;
+	}else{
+		q->rear=(++q->rear)%max;
+		q->items[q->rear]=ele;
 	}
-	q->rear=(++q->rear)%max;
-	q->items[q->rear]=ele;
 }
 int dequeue(CQ *q){
 	int ele;
 	if(isempty(*q)){
 		printf("Queue is empty");
-		return 9999;
+		return -9999;
 	}else if(q->front==q->rear){
 		ele = q->items[q->rear];
 		q->front=-1;
@@ -73,7 +76,11 @@ void main(){
 					enqueue(&q,ele);
 					break;
 			case 2: ele=dequeue(&q);
-					printf("%d is popped",ele);
+					if(ele!=-9999){
+						printf("%d is popped",ele);
+					}else{
+						printf("Error: Queue is empty\n");
+					}
 					break;
 			default:display(&q);
 					exit(0);
