@@ -10,8 +10,10 @@ int isfull(LQ q){
 	return q.rear==maxsize-1;
 }
 void insertq(LQ *q, int ele){
-	if(isfull(*q))
+	if(isfull(*q)){
 		printf("Queue is full \n");
+		return;
+	}
 	q->items[++q->rear]=ele;
 }
 int isempty(LQ q){
