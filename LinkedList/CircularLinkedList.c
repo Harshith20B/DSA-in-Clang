@@ -30,7 +30,7 @@ NODE *deletef(NODE *rear){
 		printf("List is empty");
 		return NULL;
 	}
-	if(rear->link==NULL){
+	if(rear->link==rear){
 		printf("%d is popped",rear->data);
 		free(rear);
 		return NULL;
@@ -70,7 +70,7 @@ NODE *insertr(NODE *rear,int data){
 void searche(NODE *rear,int ele){
 	NODE *temp=rear;
 	int flag=0;
-	while(temp->link!=rear){
+	while(temp!=rear){
 		if(temp->data==ele){
 			printf("%d is present in list",ele);
 			flag=1;

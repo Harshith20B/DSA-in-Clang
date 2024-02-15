@@ -48,7 +48,7 @@ void main(){
                     }
                     break;
             default:printf("your stack is:\n");
-                    for(int i=0;i<S1.top;i++){
+                    for(int i=0;i<=S1.top;i++){
                         printf("%d\n",S1.st[S1.top-i]);
                     }
                     exit(0);

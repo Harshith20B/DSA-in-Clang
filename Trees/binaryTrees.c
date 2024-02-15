@@ -81,7 +81,7 @@ struct bnode *delete(struct bnode *root,int key){
             cur=cur->right;
     }
     if(cur==NULL){
-        printf("Element not found iin array");
+        printf("Element not found in array");
         return root;
     }
     if(cur->left==NULL || cur->right==NULL){//deleting node with 1 or no children
