@@ -53,7 +53,6 @@ void display(){
         temp1=temp1->link;
     }
     printf("%d",temp1->data);
-    free(temp1);
 }
 NODE front=NULL,rear=NULL;
 void main(){
