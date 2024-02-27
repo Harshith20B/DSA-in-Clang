@@ -55,8 +55,8 @@ void display(){
     printf("%d",temp1->data);
     free(temp1);
 }
+NODE front=NULL,rear=NULL;
 void main(){
-    NODE front=NULL,rear=NULL;
     int ch,ele;
     while(1){
         printf("Enter your choice \n1.Enqueue\n2.Dequeue\n3.Display");
