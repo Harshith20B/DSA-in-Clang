@@ -34,6 +34,7 @@ NODE pop(NODE top){
     }
     NODE temp = top->link;
     printf("%d is popped",top->data);
+    count--;
     free(top);
     return temp;
 }

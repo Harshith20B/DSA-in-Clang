@@ -73,6 +73,7 @@ void postorder_trav(struct bnode *root){
 struct bnode *delete(struct bnode *root,int key){
     struct bnode *cur,*prev;
     cur=root;
+    prev=NULL;
     while(cur!=NULL && cur->info!=key){
         prev=cur;
         if(key<cur->info)
