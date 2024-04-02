@@ -46,7 +46,7 @@ NODE *deleter(NODE *rear){
 		printf("It is empty");
 		return NULL;
 	}
-	if(rear->link==NULL){
+	if(rear->link==rear){
 		printf("%d is popped",rear->data);
 		free(rear);
 		return NULL;
