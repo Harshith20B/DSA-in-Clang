@@ -63,9 +63,8 @@ NODE deleter(NODE root){
 NODE insertp(NODE root,int pos,int ele){
     NODE newNode,temp,prev;
     newNode=getNode(ele);
-    while(root==NULL || pos==1){
-        root=insertf(root,ele);
-    }
+    while(root==NULL || pos==1)
+        return insertf(root,ele);
     temp=root;
     for(int i=1;i<pos && temp!=NULL;i++){
         prev=temp;
@@ -102,6 +101,30 @@ NODE deletep(NODE root,int pos){
     free(cur);
     return root;
 }
+void deleteItem(NODE root, int key){
+    NODE temp=root;
+    NODE prev=temp;
+    if(root==NULL){
+        printf("Empty List");
+        return;
+    }
+    if(root->data==key){
+        free(root);
+        printf("%d deleted",key);
+        return;
+    }
+    while(temp->link!=NULL && temp->data!=key){
+        prev=temp;
+        temp=temp->link;
+    }
+    if(temp->link==NULL && temp->data!=key){
+        printf("Element not in list");
+    }else{
+        prev->link=temp->link;
+        printf("%d deleted",key);
+        free(temp);
+    }
+}
 void displayList(NODE root) {
     printf("Linked List: ");
     while (root != NULL) {
@@ -114,7 +137,7 @@ int main() {
     NODE root = NULL;
     int ch,ele,pos;
 	while(1){
-		printf("Enter your choice\n1.Insert First\n2.Delete First\n3.Insert Rear\n4.Delete Rear\n5.Insert at Position\n6.Delete at position\n7.Display List");
+		printf("Enter your choice\n1.Insert First\n2.Delete First\n3.Insert Rear\n4.Delete Rear\n5.Insert at Position\n6.Delete at position\n7.Delete item\n8.Display List");
 		scanf("%d",&ch);
 		switch(ch){
 			case 1: printf("Enter element to add ");
@@ -138,6 +161,10 @@ int main() {
             case 6: printf("Enter the position you want to delete the element");
                     scanf("%d",&pos);
                     deletep(root,pos);
+                    break;
+            case 7: printf("Enter the element u want to delete");
+                    scanf("%d",&ele);
+                    deleteItem(root,ele);
                     break;
 			default:displayList(root);
 					exit(0);
