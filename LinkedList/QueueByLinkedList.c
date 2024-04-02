@@ -6,7 +6,7 @@ struct Node{
     struct Node *link;
 };
 typedef struct Node *NODE;
-NODE front,rear;
+NODE front=NULL,rear=NULL;
 NODE getNode(int data){
     NODE newNode = (NODE)malloc(sizeof(struct Node));
     newNode->data=data;
@@ -54,7 +54,6 @@ void display(){
     }
     printf("%d",temp1->data);
 }
-NODE front=NULL,rear=NULL;
 void main(){
     int ch,ele;
     while(1){
